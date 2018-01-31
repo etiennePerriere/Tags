@@ -94,4 +94,13 @@ class HookManager extends BaseHook
     {
         $this->processFieldHook($event, 'brand', $event->getArgument('brand_id'));
     }
+
+    public function onImageEditRightColumnTop(HookRenderEvent $event)
+    {
+        $this->processFieldHook(
+            $event,
+            $event->getArgument('image_type') . '_' . 'image',
+            $event->getArgument('image_id')
+        );
+    }
 }
